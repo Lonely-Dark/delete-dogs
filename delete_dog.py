@@ -1,6 +1,6 @@
 import requests
 
-token='ccdcff3ef1c44eb0029e1bef96d33da6ebc3f951824137e9a5222dab6e08ecfce97da0ff76fd539460ec6'
+token='Token here'
 
 print('Make by Lonely Dark')
 print('1. Delete friends if human deactivated')
