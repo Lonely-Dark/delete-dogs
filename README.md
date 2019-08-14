@@ -1,1 +1,2 @@
-# Delete deactivated human in conversations or friends
+# Delete deactivated human in conversations or in friends
+
