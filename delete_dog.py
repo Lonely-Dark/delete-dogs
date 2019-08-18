@@ -1,6 +1,6 @@
 import requests
 
-token='Token here'
+token=''
 
 print('Make by Lonely Dark')
 print('1. Delete friends if human deactivated')
@@ -12,11 +12,12 @@ if choose=='1':
 	for i in people_all['response']['items']:
 		if 'deactivated' in i:
 			print('Found. Human name is: ' + str(i['first_name']) + ' ' + str(i['last_name']))
+			print(i)
 			print('1. Delete human')
 			print('2. Not delete human')
 			delete=input('Delete this human?: ')
 			if delete=='1':
-				requests.get('https://api.vk.com/method/friends.delete',params={'access_token': token, 'v': '5.101'}).json()
+				requests.get('https://api.vk.com/method/friends.delete',params={'access_token': token, 'v': '5.101', 'user_id': i['id']}).json()
 				print('Process done.')
 			if delete=='2':
 				print('Pass this human')
