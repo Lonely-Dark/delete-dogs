@@ -1,8 +1,10 @@
+#Python3.7.3
+#Make by Lonely-Dark
+
 import requests
 
 token='Token here'
 
-print('Make by Lonely Dark')
 print('1. Delete friends if human deactivated')
 print('2. Delete from conversation, if human deactivated')
 choose=input('Your choose: ')
