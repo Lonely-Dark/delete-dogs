@@ -8,6 +8,7 @@ print('2. Delete from conversation, if human deactivated')
 choose=input('Your choose: ')
 
 if choose=='1':
+	#Get friends list
 	people_all=requests.get('https://api.vk.com/method/friends.get',params={'access_token': token, 'fields': 'deactivated', 'v': '5.101'}).json()
 	for i in people_all['response']['items']:
 		if 'deactivated' in i:
@@ -17,7 +18,12 @@ if choose=='1':
 			print('2. Not delete human')
 			delete=input('Delete this human?: ')
 			if delete=='1':
+<<<<<<< HEAD
 				requests.get('https://api.vk.com/method/friends.delete',params={'access_token': token, 'v': '5.101', 'user_id': i['id']}).json()
+=======
+				#Delete friend
+				requests.get('https://api.vk.com/method/friends.delete',params={'access_token': token, 'v': '5.101'}).json()
+>>>>>>> c4080527a94d8815be249aca9e8144364c0cac25
 				print('Process done.')
 			if delete=='2':
 				print('Pass this human')
@@ -25,6 +31,7 @@ if choose=='1':
 
 if choose=='2':
 	conversation_id=int(input('Please type conversation_id here: '))
+	#Get peoples in conversation 
 	get_conversation_peoples=requests.get('https://api.vk.com/method/messages.getConversationMembers',params={'access_token': token, 'peer_id': 2000000000+conversation_id, 'fields': 'deactivated', 'v': '5.101'}).json()
 	for i in get_conversation_peoples['response']['profiles']:
 		if 'deactivated' in i:
@@ -33,6 +40,7 @@ if choose=='2':
 			print('2. Not delete human')
 			delete=input()
 			if delete=='1':
+				#Delete human
 				requests.get('https://api.vk.com/method/messages.removeChatUser',params={'access_token': token, 'chat_id': conversation_id, 'user_id': i['id'], 'v': '5.101'}).json()
 				print('Process done.')
 			if delete=='2':
